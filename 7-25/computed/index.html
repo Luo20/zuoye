@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="demo">
+        <input v-model="search" />
+        <div v-html="computedhtml">你好12345678haha123</div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el: "#demo",
+            data: {
+                search:"",
+                html:"你好12345678haha123"
+            },
+            computed: {
+                computedhtml: function() {
+                    var arr = this.html.split(this.search)
+                    var str = arr.join("<span style='color:orange'>" + this.search + "</span>")
+                    return str
+                }
+            }
+        })
+    </script>
+</body>
+</html>
